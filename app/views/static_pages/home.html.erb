@@ -1,9 +1,8 @@
-<h1>Home Page</h1>
 <% if user_signed_in? %>
-<h2>Welcome <%=current_user.name %></h2>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<%= link_to "Make a new author", new_author_path %>
+    <%= render 'home' %>
+    
 <% else %>
-<%= link_to "Sign up", new_user_registration_path %>
-<%= link_to "Sign in", new_user_session_path %>
+    New User? <%= link_to "Sign up", new_user_registration_path %><br/>
+    Old Friend?<%= link_to "Sign in", new_user_session_path %>
+    
 <% end %>

@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   # GET /authors
@@ -25,6 +26,7 @@ class AuthorsController < ApplicationController
   # POST /authors.json
   def create
     @author = Author.new(author_params)
+    @author.image.attach(params[:author][:image])
 
     respond_to do |format|
       if @author.save
@@ -69,6 +71,6 @@ class AuthorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def author_params
-      params.require(:author).permit(:name, :bio)
+      params.require(:author).permit(:name, :bio,:image)
     end
 end
