@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_admin, only: [:destroy]
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   # GET /authors
@@ -73,4 +74,5 @@ class AuthorsController < ApplicationController
     def author_params
       params.require(:author).permit(:name, :bio,:image)
     end
+
 end
