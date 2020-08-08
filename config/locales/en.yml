@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      author:
+        name: ""
+    errors:
+      models:
+        author:
+          attributes:
+            name:
+              taken: "A profile already exits for that author's name"
+              
