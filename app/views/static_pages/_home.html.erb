@@ -6,4 +6,5 @@
 <h2>Welcome <%=current_user.name %></h2>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %> <br>
     <%= link_to "Your authors", authors_path %> <br>
-    <%= link_to "Make a new author", new_author_path %>
+    <%= link_to "Make a new author", new_author_path %> <br>
+    <%= link_to "Your books", books_path %>

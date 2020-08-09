@@ -1,0 +1,42 @@
+<%= form_with(model: book, local: true) do |form| %>
+  <% if book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_field :genre %>
+  </div>
+
+  <div class = "book_image">
+    <%= form.file_field :image, accept: "image/jpeg, image/gif, image/png" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<!-- checks file size-->
+<script type= "text/javascript">
+  $("#book_image").bind("change", function(){
+    const size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5){
+      alert("Maximum file size is 5 MB. Please choose a smaller file.");
+      $("#book_image").val("");
+    }
+  })
+</script>
