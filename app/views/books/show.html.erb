@@ -11,6 +11,10 @@
   <%= @book.genre %>
 </p>
 
+<p><strong>Author:</strong>
+  <%= link_to @book.author.name, @book.author %>
+</p>
+
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
