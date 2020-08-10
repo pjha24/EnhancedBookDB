@@ -1,4 +1,5 @@
 class Author < ApplicationRecord
+    has_many :books
     has_one_attached :image
 
     validates :name , presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false}

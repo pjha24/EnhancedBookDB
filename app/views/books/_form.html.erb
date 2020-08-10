@@ -20,6 +20,10 @@
     <%= form.label :genre %>
     <%= form.text_field :genre %>
   </div>
+  Author
+  <div class="field">
+    <%= form.collection_select :author_id, Author.all, :id, :name %>
+  </div>
 
   <div class = "book_image">
     <%= form.file_field :image, accept: "image/jpeg, image/gif, image/png" %>
