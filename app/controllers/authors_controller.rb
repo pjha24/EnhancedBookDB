@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_admin, only: [:destroy]
+  before_action :authorize_admin, only: [:new,:create,:edit,:update,:destroy]
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   # GET /authors

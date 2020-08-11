@@ -10,6 +10,18 @@
   <strong>Bio:</strong>
   <%= @author.bio %>
 </p>
+<% if !@author.books.empty? %>
+  <p> <strong>Books by this author: </strong> </p>
+  <ul>
+    <% @author.books.select(:name).distinct.each do |book| %>
+      <li><%= book.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+<% if current_user.admin? %>
+  <%= link_to 'Edit', edit_author_path(@author) %> 
+<% end  %>
+<%= link_to 'Authors', authors_path %> <br>
+<%= link_to 'Your Books', books_path %> <br>
+<%= link_to 'Home', root_path %> 
 
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>

@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   end
   def authorize_admin
     return unless !current_user.admin?
-    redirect_to root_path, alert: 'Author not deleted: Only admins can delete users'
+    redirect_to root_path, alert: 'Access not granted. Admin status needed'
   end
 end

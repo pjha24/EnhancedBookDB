@@ -16,8 +16,8 @@
       <tr>
         <td><%=link_to author.name, author%></td>
         <td><%= author.bio %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
         <% if current_user.admin? %>
+        <td><%= link_to 'Edit', edit_author_path(author) %></td>
         <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
@@ -26,6 +26,7 @@
 </table>
 
 <br>
-
-<%= link_to 'New Author', new_author_path %>
+<% if current_user.admin? %>
+  <%= link_to 'New Author', new_author_path %>
+<% end %>
 <%= link_to 'Back to home', root_path %>
