@@ -3,9 +3,9 @@
 one:
   name: MyString
   genre: MyString
-  user: one
+  author: one
 
 two:
   name: MyString
   genre: MyString
-  user: two
+  author: two

@@ -6,7 +6,7 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.where(user: current_user.id)
+    @books = Book.all
   end
 
   # GET /books/1
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.json
   def create
-    @book = current_user.books.build(book_params)
+    @book = Book.new(book_params)
     @book.author_id = params[:book][:author_id]
     @book.image.attach(params[:book][:image])
 
@@ -74,5 +74,5 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_params
       params.require(:book).permit(:name, :genre, :author_id,:image)
-    end
+    end 
 end

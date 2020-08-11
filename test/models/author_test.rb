@@ -18,8 +18,8 @@ class AuthorTest < ActiveSupport::TestCase
     assert_not @author.valid?
   end
 
-  test "max length of bio is 255 characters" do
-    @author.bio = "a" * 256
+  test "max length of bio is 500 characters" do
+    @author.bio = "a" * 501
     assert_not @author.valid?
   end
 
