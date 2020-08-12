@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  has_one :relationship
   belongs_to :author
   has_one_attached :image
   validates :name , presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: :author_id}

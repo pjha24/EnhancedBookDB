@@ -6,7 +6,11 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @book_ids = current_user.relationships.map(&:book_id)
+    @books = Array.new
+    @book_ids.each do |id|
+      @books.push(Book.find(id))
+    end
   end
 
   # GET /books/1
