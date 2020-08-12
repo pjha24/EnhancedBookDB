@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
   has_one_attached :image
-  validates :name , presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false}
+  validates :name , presence: true, length: {maximum: 50}, uniqueness: {case_sensitive: false, scope: :author_id}
   validates :genre , presence: true, length: {maximum: 50}
   validates :author_id, presence: true
   validates :image, content_type:{in: %w[image/jpeg image/gif image/png], message: "must be a valid image format"},

@@ -34,10 +34,15 @@ en:
     attributes:
       author:
         name: ""
+      book:
+        name: ""
     errors:
       models:
         author:
           attributes:
             name:
               taken: "A profile already exits for that author's name"
-              
+        book:
+          attributes:
+            name:
+              taken: "A book with that title already exits for the author you selected"      
