@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   validates :name, presence: true
 
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
+  has_many :books, through: :relationships
 end

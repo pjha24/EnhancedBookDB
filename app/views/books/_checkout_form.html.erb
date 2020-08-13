@@ -1,0 +1,7 @@
+<% if !book.checked_out? %>
+  <%= render partial: 'checkout', locals: {book: @book} %>
+<% elsif current_user == book.user %>
+  <%= render partial: 'return', locals: {book: @book} %>
+<% else %>
+    <%= book.name %> is currently checked out
+<% end %>

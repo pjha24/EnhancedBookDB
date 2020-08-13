@@ -1,16 +1,16 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_admin, only: [:new,:create,:edit,:update,:destroy]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy,]
 
   # GET /books
   # GET /books.json
   def index
-    @book_ids = current_user.relationships.map(&:book_id)
-    @books = Array.new
-    @book_ids.each do |id|
-      @books.push(Book.find(id))
-    end
+    @books = current_user.books
+  end
+  
+  def browse
+    @books = Book.all
   end
 
   # GET /books/1
